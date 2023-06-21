@@ -26,11 +26,11 @@ define systemd::network (
 ) {
   include systemd
 
-  if $restart_service and $systemd::manage_networkd and $facts['systemd_internal_services'] and $facts['systemd_internal_services']['systemd-networkd.service'] {
-    $notify = Service['systemd-networkd']
-  } else {
-    $notify = undef
-  }
+#  if $restart_service and $systemd::manage_networkd and $facts['systemd_internal_services'] and $facts['systemd_internal_services']['systemd-networkd.service'] {
+#    $notify = Service['systemd-networkd']
+#  } else {
+#    $notify = undef
+#  }
 
   if $ensure == 'file' {
     if $content =~ Undef and $source =~ Undef {
